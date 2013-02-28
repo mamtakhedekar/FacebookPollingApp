@@ -1,0 +1,10 @@
+select * from polls;
+
+select k.PollID, k.MemberID,k.IsDeleted,k.PollShortText from Polls as k where k.IsDeleted <> true and k.MemberID = 738378408;
+
+select k from ConnectionsPolled as k where k.connectionId = 755809915 and k.fbPollId = 480733801969149
+
+select * from connectionspolled;
+
+delete from polls;
+delete from connectionspolled;

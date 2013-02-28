@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="OSNAssignmentWeb">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/" source-path="/lib"/>
+        <dependent-module archiveName="OSNPollingStateEJB.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/OSNPollingStateEJB/OSNPollingStateEJB">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="FacebookPollDomain.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/FacebookPollDomain/FacebookPollDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="PollRepresentation.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/PollRepresentation/PollRepresentation">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/OSNAssignmentWeb/build/classes"/>
+        <property name="context-root" value="OSNAssignmentWeb"/>
+    </wb-module>
+</project-modules>

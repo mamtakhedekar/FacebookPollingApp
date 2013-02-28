@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>OSNAssignmentWeb</display-name>
+  <context-param>
+    <param-name>WebAddress</param-name>
+    <param-value>ec2-23-20-132-138.compute-1.amazonaws.com</param-value>
+  </context-param>
+  <context-param>
+    <param-name>WebServiceEndPointName</param-name>
+    <param-value>OSNAssignmentWeb</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>Servlet that Fetch Facebook Friends List</description>
+    <display-name>FriendsListServlet</display-name>
+    <servlet-name>FriendsListServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.FriendsListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Servlet to Create a new poll</description>
+    <display-name>CreatePollServlet</display-name>
+    <servlet-name>CreatePollServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.CreatePollServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Servlet to Save a new poll</description>
+    <display-name>SaveValidatedPollServlet</display-name>
+    <servlet-name>SaveValidatedPollServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.SaveValidatedPollServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Returning User Poll Servlet</description>
+    <display-name>ReturningUserPollServlet</display-name>
+    <servlet-name>ReturningUserPollServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.ReturningUserPollServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete Poll Servlet</description>
+    <display-name>DeletePollServlet</display-name>
+    <servlet-name>DeletePollServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.DeletePollServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Lookup Poll Servlet</description>
+    <display-name>LookUpPollServlet</display-name>
+    <servlet-name>LookUpPollServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.LookUpPollServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Servlet To Save Return User Poll</description>
+    <display-name>SaveResponsePollServlet</display-name>
+    <servlet-name>SaveResponsePollServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.SaveResponsePollServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Servlet To Save LookUp</description>
+    <display-name>SaveLookUpServlet</display-name>
+    <servlet-name>SaveLookUpServlet</servlet-name>
+    <servlet-class>edu.stevens.cs581.SaveLookUpServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>FriendsListServlet</servlet-name>
+    <url-pattern>/FriendsListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CreatePollServlet</servlet-name>
+    <url-pattern>/CreatePollServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveValidatedPollServlet</servlet-name>
+    <url-pattern>/SaveValidatedPollServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReturningUserPollServlet</servlet-name>
+    <url-pattern>/ReturningUserPollServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletePollServlet</servlet-name>
+    <url-pattern>/DeletePollServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LookUpPollServlet</servlet-name>
+    <url-pattern>/LookUpPollServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveResponsePollServlet</servlet-name>
+    <url-pattern>/SaveResponsePollServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveLookUpServlet</servlet-name>
+    <url-pattern>/SaveLookUpServlet</url-pattern>
+  </servlet-mapping>  
+</web-app>

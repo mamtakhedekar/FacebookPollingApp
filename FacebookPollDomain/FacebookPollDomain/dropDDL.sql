@@ -1,0 +1,4 @@
+ALTER TABLE ConnectionsPolled DROP CONSTRAINT FK_ConnectionsPolled_pollId
+DROP TABLE Polls
+DROP TABLE ConnectionsPolled
+DELETE FROM SEQUENCE WHERE SEQ_NAME = 'SEQ_GEN'

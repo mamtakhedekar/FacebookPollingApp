@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>OSN Poll Project</title>
+</head>
+<body onload="getURLParams()" style="background: #fc9;">
+<!--  <form name="pollForm" action="ReturningUserPollServlet" method="get">
+		<input type="hidden" name="pollId" id="pollId"></input>-->
+<div id="pollForm">
+</div>	
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function callServlet(pollId)
+{
+	//alert(pollId);
+	//document.getElementById("pollId").value = pollId; 
+	//document.pollForm.submit();
+	document.location.href = "https://www.facebook.com/dialog/oauth?client_id=459011260803995&redirect_uri=http://ec2-23-20-132-138.compute-1.amazonaws.com:8080/OSNAssignmentWeb/ReturningUserPollServlet?pollId="+pollId;
+}
+
+function createATags()
+{
+	//alert("hi");
+	var mydiv = document.getElementById("pollForm");
+	var aTag1 = document.createElement('a');
+	aTag1.setAttribute('href',"https://www.facebook.com/dialog/oauth?client_id=459011260803995&redirect_uri=http://ec2-23-20-132-138.compute-1.amazonaws.com:8080/OSNAssignmentWeb/CreatePollServlet");
+	aTag1.innerHTML = "Create Poll				";
+	mydiv.appendChild(aTag1);
+
+	//mydiv.appendChild(document.createElement("br");	
+	//document.write("\n");
+	
+	var aTag2 = document.createElement('a');
+	aTag2.setAttribute('href',"https://www.facebook.com/dialog/oauth?client_id=459011260803995&redirect_uri=http://ec2-23-20-132-138.compute-1.amazonaws.com:8080/OSNAssignmentWeb/LookUpPollServlet");
+	aTag2.innerHTML = "Look Up";
+	mydiv.appendChild(aTag2);
+	
+	/*var aTag3 = document.createElement('a');
+	aTag3.setAttribute('href',"https://www.facebook.com/dialog/oauth?client_id=459011260803995&redirect_uri=http://ec2-23-20-132-138.compute-1.amazonaws.com:8080/OSNAssignmentWeb/DeletePollServlet");
+	aTag3.innerHTML = "Delete Poll";
+	mydiv.appendChild(aTag3);*/	
+}
+
+function getURLParams()
+{
+	var loc = location.search;
+	if(loc != "")
+	{		
+		var x = loc.substr(1).split("&")
+		for (var i=0; i<x.length; i++)
+		{
+			var y = x[i].split("=");
+			//alert("Key '" + y[0] + "' has the content '" + y[1]+"'")
+			if(y[0] == "fb_source" && y[1] == "notification")
+			{
+				var j = i + 1;
+				y = x[j].split("=");
+				if(y[0] == "request_ids")
+				{
+					if(y[1] != "")
+					{
+						var requestIds = y[1];
+						var Ids = requestIds.split("%2C");
+						var len = Ids.length;
+						callServlet(Ids[len-1]);
+					}
+				}
+				break;
+			}
+			else
+			{
+				createATags();
+				break;
+			}
+
+		}
+	}
+	else
+		return(false);
+}	
+
+</SCRIPT>	
+<!-- </form> -->
+</body>
+</html>
